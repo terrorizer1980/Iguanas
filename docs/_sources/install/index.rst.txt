@@ -51,11 +51,19 @@ With the virtual environment activated, run:
 Optional - install Spark requirements
 -------------------------------------
 
-To install the packages required to run Iguanas in Spark, you will also need to run the following command (if using `zsh` shell):
+To install the packages required to run Iguanas in Spark, you will also need to run the following command:
+
+`bash` shell:
 
 .. code-block:: bash
 
-   pip install iguanas.\[spark\]
+   pip install iguanas[spark]
+
+`zsh` shell:
+
+.. code-block:: bash
+
+   pip install iguanas\[spark\]
 
 Installing from Github
 ======================
@@ -99,7 +107,15 @@ With the `iguanas_venv` activated, install *Iguanas* using the following command
 Optional - install Spark requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To install the packages required to run Iguanas in Spark, you will also need to run the following command (if using `zsh` shell):
+To install the packages required to run Iguanas in Spark, you will also need to run the following command:
+
+`bash` shell:
+
+.. code-block:: bash
+
+   pip install <path-to-iguanas-repo>/.[spark]
+
+`zsh` shell:
 
 .. code-block:: bash
 
