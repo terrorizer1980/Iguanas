@@ -12,6 +12,7 @@ setuptools.setup(
     name="iguanas",
     version=__version__,
     author="James Laidler",
+    url="https://github.com/paypal/Iguanas",
     description="Rule generation, optimisation, filtering and scoring library",
     packages=setuptools.find_packages(exclude=['examples']),
     install_requires=['category-encoders==2.0.0', 'matplotlib==3.0.3',

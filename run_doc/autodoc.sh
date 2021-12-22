@@ -1,8 +1,10 @@
 cd ..
-rm -rf doc
-mkdir doc
-sphinx-apidoc -F -M -d 1 --separate -o doc iguanas
-cd doc
+rm -rf _docs
+rm -rf docs
+mkdir _docs
+mkdir docs
+sphinx-apidoc -F -M -d 1 --separate -o _docs iguanas
+cd _docs
 rm iguanas*rst
 
 # Copy over website structure
@@ -21,3 +23,7 @@ cp ../iguanas/rule_selection/examples/*example.ipynb ./examples/rule_selection
 cp ../iguanas/rules/examples/*example.ipynb ./examples/rules
 make clean
 make html
+cd ..
+touch _docs/_build/html/.nojekyll
+cp -r _docs/_build/html/* docs
+rm -r _docs
