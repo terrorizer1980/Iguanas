@@ -24,6 +24,6 @@ cp ../iguanas/rules/examples/*example.ipynb ./examples/rules
 make clean
 make html
 cd ..
-touch _docs/_build/html/.nojekyll
 cp -r _docs/_build/html/* docs
+touch docs/.nojekyll
 rm -r _docs
