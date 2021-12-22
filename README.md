@@ -15,4 +15,4 @@ It aims to help streamline the process for developing a deployment-ready Rules-B
 
 # Getting started
 
-Instructions on installing and using Iguanas can be found in the [Iguanas documentation](https://paypal.github.io/Iguanas-docs/).
+Instructions on installing and using Iguanas can be found in the [Iguanas documentation](https://paypal.github.io/Iguanas/).
