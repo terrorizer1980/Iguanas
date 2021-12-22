@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iguanas.pipeline.linear_pipeline &#8212; Iguanas  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/iguanas.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/iguanas_icon.png"/>
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/iguanas_text_logo.png" class="logo" alt="logo">
+</a>      
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../install/index.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../user_guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api/index.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../examples/index.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about_the_project/index.html">
+  About the project
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/paypal/Iguanas" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for iguanas.pipeline.linear_pipeline</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Class for creating a Linear Pipeline.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">iguanas.pipeline.class_accessor</span> <span class="kn">import</span> <span class="n">ClassAccessor</span>
+<span class="kn">from</span> <span class="nn">iguanas.utils.typing</span> <span class="kn">import</span> <span class="n">PandasDataFrameType</span><span class="p">,</span> <span class="n">PandasSeriesType</span>
+
+
+<div class="viewcode-block" id="LinearPipeline"><a class="viewcode-back" href="../../../api/api/iguanas.pipeline.LinearPipeline.html#iguanas.pipeline.LinearPipeline">[docs]</a><span class="k">class</span> <span class="nc">LinearPipeline</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a pipeline, which is a sequence of steps which are applied </span>
+<span class="sd">    sequentially to a dataset. Each step should be an instantiated class with </span>
+<span class="sd">    both `fit` and `transform` methods. The final step should be an </span>
+<span class="sd">    instantiated class with both `fit` and `predict` methods.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    steps : List[Tuple[str, object]]</span>
+<span class="sd">        The steps to be applied as part of the pipeline. Each element of the</span>
+<span class="sd">        list corresponds to a single step. Each step should be a tuple of two</span>
+<span class="sd">        elements - the first element should be a string which refers to the </span>
+<span class="sd">        step; the second element should be the instantiated class which is run</span>
+<span class="sd">        as part of the step. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">=</span> <span class="n">steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="LinearPipeline.fit"><a class="viewcode-back" href="../../../api/api/iguanas.pipeline.LinearPipeline.html#iguanas.pipeline.LinearPipeline.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">X</span><span class="p">:</span> <span class="n">PandasDataFrameType</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="n">PandasSeriesType</span><span class="p">,</span>
+            <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sequentially runs the `fit_transform` methods of each step in the </span>
+<span class="sd">        pipeline, except for the last step, where the `fit` method is run.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : PandasDataFrameType</span>
+<span class="sd">            The dataset.</span>
+<span class="sd">        y : PandasSeriesType</span>
+<span class="sd">            The binary target column.</span>
+<span class="sd">        sample_weight : PandasSeriesType, optional</span>
+<span class="sd">            Row-wise weights to apply. Defaults to None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">step_tag</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_accessor</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">)</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exception_if_no_cols_in_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">step_tag</span><span class="p">)</span>
+        <span class="n">final_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">final_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_accessor</span><span class="p">(</span><span class="n">final_step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">)</span>
+        <span class="n">final_step</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LinearPipeline.fit_transform"><a class="viewcode-back" href="../../../api/api/iguanas.pipeline.LinearPipeline.html#iguanas.pipeline.LinearPipeline.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                      <span class="n">X</span><span class="p">:</span> <span class="n">PandasDataFrameType</span><span class="p">,</span>
+                      <span class="n">y</span><span class="p">:</span> <span class="n">PandasSeriesType</span><span class="p">,</span>
+                      <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PandasDataFrameType</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sequentially runs the `fit_transform` methods of each step in the </span>
+<span class="sd">        pipeline.</span>
+
+<span class="sd">        X : PandasDataFrameType</span>
+<span class="sd">            The dataset.</span>
+<span class="sd">        y : PandasSeriesType</span>
+<span class="sd">            The binary target column.</span>
+<span class="sd">        sample_weight : PandasSeriesType, optional</span>
+<span class="sd">            Row-wise weights to apply. Defaults to None.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasDataFrameType</span>
+<span class="sd">            The transformed dataset.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">step_tag</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">:</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_accessor</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">)</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exception_if_no_cols_in_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">step_tag</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X</span></div>
+
+<div class="viewcode-block" id="LinearPipeline.fit_predict"><a class="viewcode-back" href="../../../api/api/iguanas.pipeline.LinearPipeline.html#iguanas.pipeline.LinearPipeline.fit_predict">[docs]</a>    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                    <span class="n">X</span><span class="p">:</span> <span class="n">PandasDataFrameType</span><span class="p">,</span>
+                    <span class="n">y</span><span class="p">:</span> <span class="n">PandasSeriesType</span><span class="p">,</span>
+                    <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PandasSeriesType</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sequentially runs the `fit_transform` methods of each step in the </span>
+<span class="sd">        pipeline, except for the last step, where the `fit_predict` method is </span>
+<span class="sd">        run.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : PandasDataFrameType</span>
+<span class="sd">            The dataset.</span>
+<span class="sd">        y : PandasSeriesType</span>
+<span class="sd">            The binary target column.</span>
+<span class="sd">        sample_weight : PandasSeriesType, optional</span>
+<span class="sd">            Row-wise weights to apply. Defaults to None.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasSeriesType</span>
+<span class="sd">            The prediction of the final step.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">step_tag</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_accessor</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">)</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exception_if_no_cols_in_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">step_tag</span><span class="p">)</span>
+        <span class="n">final_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">final_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_accessor</span><span class="p">(</span><span class="n">final_step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">final_step</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LinearPipeline.predict"><a class="viewcode-back" href="../../../api/api/iguanas.pipeline.LinearPipeline.html#iguanas.pipeline.LinearPipeline.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">PandasDataFrameType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PandasSeriesType</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sequentially runs the `transform` methods of each step in the pipeline,</span>
+<span class="sd">        except for the last step, where the `predict` method is run. Note that</span>
+<span class="sd">        before using this method, you should first run either the `fit` or </span>
+<span class="sd">        `fit_predict` methods.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : PandasDataFrameType</span>
+<span class="sd">            The dataset.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        PandasSeriesType</span>
+<span class="sd">            The prediction of the final step.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">step_tag</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exception_if_no_cols_in_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">step_tag</span><span class="p">)</span>
+        <span class="n">final_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">final_step</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LinearPipeline.get_params"><a class="viewcode-back" href="../../../api/api/iguanas.pipeline.LinearPipeline.html#iguanas.pipeline.LinearPipeline.get_params">[docs]</a>    <span class="k">def</span> <span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the parameters of each step in the pipeline.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            The parameters of each step in the pipeline.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">pipeline_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="n">steps_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps_</span>
+        <span class="k">for</span> <span class="n">step_tag</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps_</span><span class="p">:</span>
+            <span class="n">step_param_dict</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">step_tag</span><span class="si">}</span><span class="s1">__</span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">param</span><span class="p">,</span>
+                <span class="n">value</span> <span class="ow">in</span> <span class="n">step</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="n">pipeline_params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">step_param_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pipeline_params</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_check_accessor</span><span class="p">(</span><span class="n">step</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+                        <span class="n">steps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks whether the any of the parameters in the given `step` is of type</span>
+<span class="sd">        ClassAccessor. If so, then it runs the ClassAccessor&#39;s `get` method,</span>
+<span class="sd">        which extracts the given attribute from the given step in the pipeline,</span>
+<span class="sd">        and injects it into the parameter.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">step_param_dict</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="k">for</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">step_param_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ClassAccessor</span><span class="p">):</span>
+                <span class="n">step</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">step</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_exception_if_no_cols_in_X</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">PandasDataFrameType</span><span class="p">,</span> <span class="n">step_tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Raises an exception if `X` has no columns.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DataFrameSizeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;`X` has been reduced to zero columns after the `</span><span class="si">{</span><span class="n">step_tag</span><span class="si">}</span><span class="s1">` step in the pipeline.&#39;</span>
+            <span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">DataFrameSizeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom exception for when `X` has no columns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, James Laidler.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.1.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
