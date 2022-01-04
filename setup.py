@@ -24,7 +24,7 @@ setuptools.setup(
             'pytest==6.0.1', 'check-manifest==0.47', 'wheel==0.37.0',
             'twine==3.7.1', 'sphinx==4.3.1', 'numpydoc==1.1.0',
             'nbsphinx==0.8.7', 'pydata-sphinx-theme==0.7.2', 'nbmake==1.1',
-            'pytest-cov==3.0.0'
+            'pytest-cov==3.0.0', 'ipykernel==6.6.0'
         ],
         'spark': ['koalas==1.8.1', 'pyspark==3.1.2']
     },
