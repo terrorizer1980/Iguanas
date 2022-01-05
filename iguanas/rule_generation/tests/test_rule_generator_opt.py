@@ -262,8 +262,8 @@ def test_fit(create_data, rg_instantiated):
     for i, w in enumerate([None, weights]):
         X_rules = rg.fit(X, y, sample_weight=w)
         assert X_rules.shape == exp_results[i][0]
-        print(X_rules.sum().sum())
         assert X_rules.sum().sum() == exp_results[i][1]
+        assert rg.rule_names == X_rules.columns.tolist()
 
 
 def test_fit_target_feat_corr_types_infer(create_data, rg_instantiated, fs_instantiated):
@@ -277,8 +277,8 @@ def test_fit_target_feat_corr_types_infer(create_data, rg_instantiated, fs_insta
     for i, w in enumerate([None, weights]):
         X_rules = rg.fit(X, y, sample_weight=w)
         assert X_rules.shape == exp_results[i][0]
-        print(X_rules.sum().sum())
         assert X_rules.sum().sum() == exp_results[i][1]
+        assert rg.rule_names == X_rules.columns.tolist()
         assert len(
             [l for l in list(rg.rule_strings.values()) if "X['email_alpharatio']>" in l]) == 0
         assert len(
@@ -309,8 +309,8 @@ def test_fit_target_feat_corr_types_provided(create_data, rg_instantiated, fs_in
     for i, w in enumerate([None, weights]):
         X_rules = rg.fit(X, y, sample_weight=w)
         assert X_rules.shape == exp_results[i][0]
-        print(X_rules.sum().sum())
         assert X_rules.sum().sum() == exp_results[i][1]
+        assert rg.rule_names == X_rules.columns.tolist()
         assert len(
             [l for l in list(rg.rule_strings.values()) if "X['email_alpharatio']>" in l]) == 0
         assert len(
@@ -380,7 +380,6 @@ def test_generate_categorical_one_condition_rules(create_data, rg_instantiated):
         rule_strings, X_rules = rg._generate_categorical_one_condition_rules(
             X, y, columns_cat, w
         )
-        print(rule_strings)
         assert X_rules.shape == (1000, 1)
         assert rule_strings == exp_rule_strings[i]
 
@@ -454,7 +453,6 @@ def test_generate_n_order_pairwise_rules(return_dummy_rules, create_smaller_data
             X_rules, y, rule_strings, rem_corr_rules, w
         )
         assert X_rules.shape == (10, 4)
-        print(i, rule_strings)
         assert rule_strings == exp_rule_strings[i]
 
 

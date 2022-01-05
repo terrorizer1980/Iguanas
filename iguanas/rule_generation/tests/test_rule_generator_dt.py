@@ -117,6 +117,7 @@ def test_fit(create_data, rg_instantiated):
     for i, w in enumerate([None, weights]):
         X_rules = rg.fit(X, y, sample_weight=w)
         pd.testing.assert_series_equal(X_rules.sum(), exp_results[i])
+        assert rg.rule_names == exp_results[i].index.tolist()
 
 
 def test_fit_target_feat_corr_types_infer(create_data, rg_instantiated):
@@ -148,6 +149,7 @@ def test_fit_target_feat_corr_types_infer(create_data, rg_instantiated):
     for i, w in enumerate([None, weights]):
         X_rules = rg.fit(X, y, sample_weight=w)
         pd.testing.assert_series_equal(X_rules.sum(), exp_results[i])
+        assert rg.rule_names == exp_results[i].index.tolist()
         assert len(
             [l for l in list(rg.rule_strings.keys()) if "X['email_alpharatio']>" in l]) == 0
         assert len(
@@ -196,6 +198,7 @@ def test_fit_target_feat_corr_types_provided(create_data, rg_instantiated):
     for i, w in enumerate([None, weights]):
         X_rules = rg.fit(X, y, sample_weight=w)
         pd.testing.assert_series_equal(X_rules.sum(), exp_results[i])
+        assert rg.rule_names == exp_results[i].index.tolist()
         assert len(
             [l for l in list(rg.rule_strings.values()) if "X['email_alpharatio']>" in l]) == 0
         assert len(
