@@ -55,7 +55,7 @@ def rg_instantiated(fs_instantiated):
         'verbose': 1
     }
     rgs = RuleGeneratorDTSpark(**params)
-    rgs.today = '20200204'
+    rgs._today = '20200204'
     return rgs, params
 
 

@@ -13,7 +13,6 @@ from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.classification import RandomForestClassifier, DecisionTreeClassificationModel
 from pyspark.sql import DataFrame
 import warnings
-from copy import deepcopy
 
 
 class RuleGeneratorDTSpark(_BaseGenerator):
@@ -52,8 +51,7 @@ class RuleGeneratorDTSpark(_BaseGenerator):
         the overall progress of the training of the ensemble model and the
         extraction of the rules from the trees.
     rule_name_prefix : str, optional
-        Prefix to use for each rule name. If None, the standard prefix is 
-        used. Defaults to None.
+        Prefix to use for each rule. Defaults to 'RGDT_Rule'.
 
     Attributes
     ----------
@@ -69,7 +67,7 @@ class RuleGeneratorDTSpark(_BaseGenerator):
                  tree_ensemble: RandomForestClassifier,
                  precision_threshold=0,
                  target_feat_corr_types=None,
-                 verbose=0, rule_name_prefix=None):
+                 verbose=0, rule_name_prefix='RGDT_Rule'):
 
         _BaseGenerator.__init__(
             self,
@@ -172,7 +170,8 @@ class RuleGeneratorDTSpark(_BaseGenerator):
             )
             list_of_rule_string_sets.append(dt_rule_strings_set)
         rule_strings_set = sorted(set().union(*list_of_rule_string_sets))
-        self.rule_strings = dict((self._generate_rule_name_dt(), rule_string)
+        # self.rule_strings = dict((self._generate_rule_name_dt(), rule_string)
+        self.rule_strings = dict((self._generate_rule_name(), rule_string)
                                  for rule_string in rule_strings_set)
         if not self.rule_strings:
             raise Exception(

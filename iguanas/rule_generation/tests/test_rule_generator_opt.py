@@ -75,7 +75,7 @@ def rg_instantiated(fs_instantiated):
         'verbose': 1
     }
     rg = RuleGeneratorOpt(**params)
-    rg.today = '20200204'
+    rg._today = '20200204'
     return [rg, params]
 
 
@@ -585,15 +585,6 @@ def test_return_pairwise_rules_to_drop(rg_instantiated, return_dummy_pairwise_ru
     pairwise_descriptions, _, pairwise_to_orig_lookup, rule_descriptions = return_dummy_pairwise_rules
     assert rg._return_pairwise_rules_to_drop(
         pairwise_descriptions, pairwise_to_orig_lookup, rule_descriptions) == ['A&B', 'A&C']
-
-
-def test_generate_rule_name(rg_instantiated):
-    rg, _ = rg_instantiated
-    rule_name = rg._generate_rule_name()
-    assert rule_name == 'RGO_Rule_20200204_0'
-    rg.rule_name_prefix = 'TEST'
-    rule_name = rg._generate_rule_name()
-    assert rule_name == 'TEST_1'
 
 
 def test_sort_rule_dfs_by_opt_metric(rg_instantiated):

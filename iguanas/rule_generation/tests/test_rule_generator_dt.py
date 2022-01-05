@@ -56,7 +56,7 @@ def rg_instantiated(fs_instantiated):
         'verbose': 1
     }
     rg = RuleGeneratorDT(**params)
-    rg.today = '20200204'
+    rg._today = '20200204'
     return [rg, params]
 
 
