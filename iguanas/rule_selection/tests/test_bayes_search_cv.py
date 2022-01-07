@@ -97,6 +97,7 @@ def test_fit_predict_rule_gen_dt(_create_data, _instantiate_classes):
     search_spaces = {
         'rg_dt': {
             'n_total_conditions': UniformInteger(2, 5),
+            'target_feat_corr_types': Choice([None])
         },
         'sf': {
             'threshold': UniformFloat(0, 1),
@@ -138,8 +139,9 @@ def test_fit_predict_rule_gen_dt(_create_data, _instantiate_classes):
                    ) == '<bound method Precision.fit of Precision>'
         assert bs.best_params['rbs']['n_iter'] == 15.0
         assert bs.best_params['rg_dt']['n_total_conditions'] == 5.0
+        assert bs.best_params['rg_dt']['target_feat_corr_types'] is None
         assert bs.best_params['sf']['threshold'] == 0.2583716619727481
-        assert bs.cv_results.shape == (5, 10)
+        assert bs.cv_results.shape == (5, 11)
         y_pred = bs.predict(X)
         assert y_pred.mean() == 0.02
         assert f1.fit(y_pred, y) == 0.33333333333333337
@@ -155,8 +157,9 @@ def test_fit_predict_rule_gen_dt(_create_data, _instantiate_classes):
                    ) == '<bound method FScore.fit of FScore with beta=1>'
         assert bs.best_params['rbs']['n_iter'] == 12.0
         assert bs.best_params['rg_dt']['n_total_conditions'] == 4.0
+        assert bs.best_params['rg_dt']['target_feat_corr_types'] is None
         assert bs.best_params['sf']['threshold'] == 0.1474198119511717
-        assert bs.cv_results.shape == (5, 10)
+        assert bs.cv_results.shape == (5, 11)
         y_pred = bs.predict(X)
         assert y_pred.mean() == 0.1
         assert f1.fit(y_pred, y, sample_weight) == 0.8421052631578948

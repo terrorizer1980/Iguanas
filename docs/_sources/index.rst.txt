@@ -11,7 +11,7 @@ What is Iguanas?
 
 Iguanas is a fast, flexible and modular Python package for:
 
-* Generating new fraud-capture rules using a labelled dataset.
+* Generating new rules using a labelled dataset.
 * Optimising existing rules using a labelled or unlabelled dataset.
 * Combining rule sets and removing/filtering those which are unnecessary.
 * Generating rule scores based on their performance.
@@ -29,31 +29,33 @@ An **RBS** is one that leverages a number of these rules to provide a certain ou
 
 For example, an e-commerce company might employ an RBS to *accept*, *reject* and *review* its transactions.​
 
-The pros and cons of an RBS
+The upsides and downsides of an RBS
 ---------------------------
 
-As with any approach, there are pros and cons to RBS’s.​
+As with any approach, there are upsides and downsides to RBS’s.​
 
-**Pros**
+**Upsides**
 
 * Rules are intuitive, so the outcome given by the RBS is easy to understand.​​
 * RBS’s are flexible, since rules can be quickly added to address new behaviour.​​
 * Rules can be built using domain knowledge, which may capture behaviour an ML model would have missed.​​
 
-**Cons**
+**Downsides**
 
-* Linked to the last pro - domain knowledge is usually required to build rules.​ If you don’t have the domain knowledge, creating rules can be difficult.​
+* Linked to the last upside - domain knowledge is usually required to build rules.​ If you don’t have the domain knowledge, creating rules can be difficult.​
 * Generating these rules can be challenging and time consuming, especially if a data-guided approach is used.​
 * Difficult to tweak existing rules to address new trends.​
+* Knowing the combination of rules that gives the best RBS performance is almost impossible.
 
 The solution – Iguanas!
 -----------------------
 
-Iguanas addresses the cons of an RBS for binary classification problems:​
+Iguanas addresses the downsides of an RBS for binary classification problems:​
 
 * Iguanas only requires a historic dataset to generate rules – similar to the requirements of an ML model.​​
-* Iguanas quickly and easily generates high performance rules and utilizes an API that is familiar to most data scientists - Sklearn’s fit/transform methology.​
-* Iguanas’ rule optimization module allows the user to tweak the thresholds of current rules using a labelled dataset.​
+* Iguanas quickly and easily generates high performance rules and utilises an API that is familiar to most data scientists - Sklearn’s fit/transform/predict methology.​
+* Iguanas’ Rule Optimisation module allows the user to tweak the thresholds of current rules using a labelled dataset.​
+* Iguanas' Pipeline and Bayes Search CV search classes allow the user to identify the combination of rules that gives the best RBS performance.
 * Iguanas also has a host of other modules which help to streamline the RBS set up process.​
 
 Getting started

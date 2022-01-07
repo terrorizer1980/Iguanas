@@ -168,8 +168,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-pros-and-cons-of-an-rbs">
-   The pros and cons of an RBS
+  <a class="reference internal nav-link" href="#the-upsides-and-downsides-of-an-rbs">
+   The upsides and downsides of an RBS
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -210,7 +210,7 @@
 <h2>What is Iguanas?<a class="headerlink" href="#what-is-iguanas" title="Permalink to this headline">¶</a></h2>
 <p>Iguanas is a fast, flexible and modular Python package for:</p>
 <ul class="simple">
-<li><p>Generating new fraud-capture rules using a labelled dataset.</p></li>
+<li><p>Generating new rules using a labelled dataset.</p></li>
 <li><p>Optimising existing rules using a labelled or unlabelled dataset.</p></li>
 <li><p>Combining rule sets and removing/filtering those which are unnecessary.</p></li>
 <li><p>Generating rule scores based on their performance.</p></li>
@@ -224,29 +224,31 @@
 <p>An <strong>RBS</strong> is one that leverages a number of these rules to provide a certain outcome.​</p>
 <p>For example, an e-commerce company might employ an RBS to <em>accept</em>, <em>reject</em> and <em>review</em> its transactions.​</p>
 </section>
-<section id="the-pros-and-cons-of-an-rbs">
-<h2>The pros and cons of an RBS<a class="headerlink" href="#the-pros-and-cons-of-an-rbs" title="Permalink to this headline">¶</a></h2>
-<p>As with any approach, there are pros and cons to RBS’s.​</p>
-<p><strong>Pros</strong></p>
+<section id="the-upsides-and-downsides-of-an-rbs">
+<h2>The upsides and downsides of an RBS<a class="headerlink" href="#the-upsides-and-downsides-of-an-rbs" title="Permalink to this headline">¶</a></h2>
+<p>As with any approach, there are upsides and downsides to RBS’s.​</p>
+<p><strong>Upsides</strong></p>
 <ul class="simple">
 <li><p>Rules are intuitive, so the outcome given by the RBS is easy to understand.​​</p></li>
 <li><p>RBS’s are flexible, since rules can be quickly added to address new behaviour.​​</p></li>
 <li><p>Rules can be built using domain knowledge, which may capture behaviour an ML model would have missed.​​</p></li>
 </ul>
-<p><strong>Cons</strong></p>
+<p><strong>Downsides</strong></p>
 <ul class="simple">
-<li><p>Linked to the last pro - domain knowledge is usually required to build rules.​ If you don’t have the domain knowledge, creating rules can be difficult.​</p></li>
+<li><p>Linked to the last upside - domain knowledge is usually required to build rules.​ If you don’t have the domain knowledge, creating rules can be difficult.​</p></li>
 <li><p>Generating these rules can be challenging and time consuming, especially if a data-guided approach is used.​</p></li>
 <li><p>Difficult to tweak existing rules to address new trends.​</p></li>
+<li><p>Knowing the combination of rules that gives the best RBS performance is almost impossible.</p></li>
 </ul>
 </section>
 <section id="the-solution-iguanas">
 <h2>The solution – Iguanas!<a class="headerlink" href="#the-solution-iguanas" title="Permalink to this headline">¶</a></h2>
-<p>Iguanas addresses the cons of an RBS for binary classification problems:​</p>
+<p>Iguanas addresses the downsides of an RBS for binary classification problems:​</p>
 <ul class="simple">
 <li><p>Iguanas only requires a historic dataset to generate rules – similar to the requirements of an ML model.​​</p></li>
-<li><p>Iguanas quickly and easily generates high performance rules and utilizes an API that is familiar to most data scientists - Sklearn’s fit/transform methology.​</p></li>
-<li><p>Iguanas’ rule optimization module allows the user to tweak the thresholds of current rules using a labelled dataset.​</p></li>
+<li><p>Iguanas quickly and easily generates high performance rules and utilises an API that is familiar to most data scientists - Sklearn’s fit/transform/predict methology.​</p></li>
+<li><p>Iguanas’ Rule Optimisation module allows the user to tweak the thresholds of current rules using a labelled dataset.​</p></li>
+<li><p>Iguanas’ Pipeline and Bayes Search CV search classes allow the user to identify the combination of rules that gives the best RBS performance.</p></li>
 <li><p>Iguanas also has a host of other modules which help to streamline the RBS set up process.​</p></li>
 </ul>
 </section>
