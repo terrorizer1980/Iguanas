@@ -21,7 +21,7 @@ setuptools.setup(
                       'scikit-learn==0.23.2', 'scipy==1.7.1'],
     extras_require={
         'dev': [
-            'pytest==6.0.1', 'check-manifest==0.47', 'wheel==0.37.0',
+            'pytest==6.1.0', 'check-manifest==0.47', 'wheel==0.37.0',
             'twine==3.7.1', 'sphinx==4.3.1', 'numpydoc==1.1.0',
             'nbsphinx==0.8.7', 'pydata-sphinx-theme==0.7.2', 'nbmake==1.1',
             'pytest-cov==3.0.0'
