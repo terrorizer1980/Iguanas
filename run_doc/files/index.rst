@@ -25,40 +25,39 @@ A **rule** is a set of conditions which, if met, trigger a certain response.
 
 An example of a rule is a condition that captures a particular type of fraudulent behaviour for an e-commerce company:
 
-*If the number of transactions made from a given email address in the past 4 hours is greater than 10, reject the transaction.​*
+*If the number of transactions made from a given email address in the past 4 hours is greater than 10, reject the transaction.*
 
-An **RBS** leverages a number of these rules to provide a certain outcome.​
+An **RBS** leverages a number of these rules to provide a certain outcome.
 
-For example, an e-commerce company might employ an RBS to *accept*, *reject* and *review* its transactions.​
+For example, an e-commerce company might employ an RBS to *accept*, *reject* and *review* its transactions.
 
-The upsides and downsides of an RBS
----------------------------
+The advantages and disadvantages of an RBS
+------------------------------------------
 
-As with any approach, there are upsides and downsides to Rule-Based Systems.​
+As with any approach, there are both advantages and disadvantages related to Rules-Based Systems:
 
-**Upsides**
+**Advantages**
 
-* Rules are intuitive, so the outcome given by the RBS is easy to understand.​​
-* RBS’s are flexible, since rules can be quickly added to address new behaviour.​​
-* Rules can be built using domain knowledge, which may capture behaviour an ML model would have missed.​​
+* Rules are intuitive, so the outcome given by the RBS is easy to understand.
+* Rules-Based Systems are flexible, since rules can be quickly added to address new behaviour.
+* Rules can be built using domain knowledge, which may capture behaviour an ML model would have missed.
 
-**Downsides**
+**Disadvantages**
 
-* Linked to the last upside - domain knowledge is usually required to build rules.​ If you don’t have the domain knowledge, creating rules can be difficult.​
-* Generating these rules can be challenging and time consuming, especially if a data-guided approach is used.​
-* It's difficult to tweak existing rules to address new trends.​
-* Knowing which rules will give the best RBS performance is almost impossible.
+* If you don't have domain knowledge, you need to use a data-guided approach when generating rules, which can be challenging and time consuming.
+* It's difficult to tweak existing rules to address new trends.
+* Knowing which rules to include in the RBS to maximise its performance is very difficult.
 
 The solution – Iguanas!
 -----------------------
 
-Iguanas addresses the downsides of an RBS for binary classification problems:​
+Iguanas addresses the disadvantages of an RBS for binary classification problems:
 
-* Iguanas only requires a historic dataset to generate rules – similar to the requirements of an ML model.​​
-* Iguanas quickly and easily generates high performance rules and utilises an API that is familiar to most data scientists - Sklearn’s fit/transform/predict methology.​
-* Iguanas’ Rule Optimisation module allows users to tweak the thresholds of current rules using a labelled dataset.​
-* Iguanas' Pipeline and Bayes Search CV search classes allow users to identify the combination of rules that gives the best RBS performance.
-* Iguanas also has a host of other modules which help to streamline the RBS set up process.​
+* Iguanas only requires a historic data set to generate rules - similar to the requirements of an ML model.
+* Iguanas utilises an API that is familiar to most data scientists - Sklearn's fit/transform/predict methodology.
+* Iguanas' Rule Optimisation module allows users to update the thresholds of current rules based on new trends.
+* Iguanas' **LinearPipeline** and **BayesSearchCV** classes allow users to identify the combination of rules that gives the best RBS performance.
+* Iguanas has many other modules that streamline the process of generating an RBS.
 
 Getting started
 ---------------
