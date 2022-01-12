@@ -64,6 +64,9 @@ RUN pip install scikit-learn==0.23.2 --no-cache-dir
 RUN pip install scipy --no-cache-dir
 
 RUN pip install --no-deps iguanas==0.0.1
-RUN pip install --no-deps iguanas[spark]==0.0.1
+# RUN pip install --no-deps iguanas[spark]==0.0.1
+# RUN pip install iguanas==0.0.1
+RUN pip install koalas==1.8.1 
+RUN pip install pyspark==3.1.2
 
 RUN rm -r /cert
