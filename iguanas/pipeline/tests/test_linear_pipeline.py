@@ -4,7 +4,8 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from iguanas.pipeline.linear_pipeline import DataFrameSizeError
 
-from iguanas.rule_generation import RuleGeneratorDT, RuleGeneratorOpt
+from iguanas.rule_generation.rule_generator_dt import RuleGeneratorDT
+from iguanas.rule_generation.rule_generator_opt import RuleGeneratorOpt
 from iguanas.rule_optimisation import BayesianOptimiser
 from iguanas.rules import Rules
 from iguanas.metrics import FScore, JaccardSimilarity, Precision
@@ -12,7 +13,6 @@ from iguanas.rule_selection import SimpleFilter, CorrelatedFilter, GreedyFilter
 from iguanas.correlation_reduction import AgglomerativeClusteringReducer
 from iguanas.rbs import RBSOptimiser, RBSPipeline
 from iguanas.pipeline import LinearPipeline, ClassAccessor
-from iguanas.rule_generation import RuleGeneratorDT
 
 f1 = FScore(1)
 js = JaccardSimilarity()
