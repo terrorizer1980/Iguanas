@@ -4,8 +4,8 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from iguanas.pipeline.linear_pipeline import DataFrameSizeError
 
-from iguanas.rule_generation.rule_generator_dt import RuleGeneratorDT
-from iguanas.rule_generation.rule_generator_opt import RuleGeneratorOpt
+from iguanas.rule_generation.rule_generator_dt import RuleGeneratorDT, \
+    RuleGeneratorOpt
 from iguanas.rule_optimisation import BayesianOptimiser
 from iguanas.rules import Rules
 from iguanas.metrics import FScore, JaccardSimilarity, Precision
